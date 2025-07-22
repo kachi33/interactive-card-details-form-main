@@ -2,8 +2,6 @@
 @import "tailwindcss";
 
 @theme {
-  --breakpoint-md: 375px;
-  --breakpoint-lg: 1440px;
   --color-gray-200: hsl(240, 5%, 91%);
   --color-purple-950: hsl(240, 5%, 20%);
   --color-gray-400: hsl(240, 5%, 70%);

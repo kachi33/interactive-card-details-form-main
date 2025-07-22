@@ -1,78 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Interactive card details form</title>
-  <!-- Styled with tailwindCSS -->
-</head>
-<body>
-  <main class="flex">
-    <section class="bg-gradient-to-b from-purple-950 to-purple-900 w-full h-screen flex items-center justify-center">
-      </section>
-        <!-- Card front start -->
-    <section class="relative card-container">
-      <div class="card absolute">
-        <div class="card-inner">
-          <!-- Card front -->
-          <div class="card-front">
-            <img src="/bg-card-front.png" alt="Card front background">
-            <div class="card-details">
-              <span class="card-number">0000 0000 0000 0000</span>
-              <span class="card-name">Jane Appleseed</span>
-              <span class="card-expiry">00/00</span>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+
+    <title>Frontend Mentor | Interactive card details form</title>
+    <!-- Styled with tailwindCSS -->
+  </head>
+  <body>
+    <main class="flex flex-col md:flex-row h-screen bg-amber-300 w-full">
+<section class="bg-[url(/bg-main-mobile.png)] md:bg-[url(/bg-main-desktop.png)] bg-no-repeat bg-cover md min-h-[40%] md:min-h-screen w-full md:w-[30%]">
+     </section>
+      <!-- Card front start -->
+      <section class="relative card-container">
+        <div class="card">
+          <div class="card-inner">
+            <!-- Card front -->
+            <div class="card-front">
+              <img src="/bg-card-front.png" alt="Card front background" />
+              <div class="card-details">
+                <span class="card-number">0000 0000 0000 0000</span>
+                <span class="card-name">Jane Appleseed</span>
+                <span class="card-expiry">00/00</span>
+              </div>
+            </div>
+
+            <!-- Card back -->
+            <div class="card-back">
+              <img src="/bg-card-back.png" alt="Card back background" />
+              <span class="card-cvc">123</span>
             </div>
           </div>
-
-          <!-- Card back -->
-          <div class="card-back">
-            <img src="/bg-card-back.png" alt="Card back background">
-            <span class="card-cvc">123</span>
-          </div>
         </div>
-      </div>
       </section>
 
-    <!-- Form start -->
-    <form id="card-form" class="card-form grid gap-4" novalidate>
-      <div>
-        <label for="name">Cardholder Name</label>
-        <input type="text" id="name" placeholder="e.g. Jane Appleseed" required>
-      </div>
+      <!-- Form start -->
+      <form id="card-form" class="card-form grid gap-4" novalidate>
+        <div>
+          <label for="name">Cardholder Name</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="e.g. Jane Appleseed"
+            required
+          />
+        </div>
 
-            <div>
+        <div>
+          <label for="number">Card Number</label>
+          <input
+            type="text"
+            id="number"
+            placeholder="e.g. 1234 5678 9123 0000"
+            required
+            pattern="\d{4} \d{4} \d{4} \d{4}"
+          />
+        </div>
+        <div>
+          <label for="expiry">Exp. Date (MM/YY)</label>
+          <div class="expiry-container">
+            <input
+              type="text"
+              id="expiry-month"
+              placeholder="MM"
+              required
+              pattern="\d{2}"
+            />
+            <input
+              type="text"
+              id="expiry-year"
+              placeholder="YY"
+              required
+              pattern="\d{2}"
+            />
+          </div>
+        </div>
+        <div>
+          <label for="cvc">CVC</label>
+          <input
+            type="text"
+            id="cvc"
+            placeholder="e.g. 123"
+            required
+            pattern="\d{3}"
+          />
+        </div>
+        <button type="submit">Confirm</button>
+      </form>
 
-      <label for="number">Card Number</label>
-      <input type="text" id="number" placeholder="e.g. 1234 5678 9123 0000" required pattern="\d{4} \d{4} \d{4} \d{4}">
-</div>
-      <div>
+      <!-- Completed state start -->
 
-      <label for="expiry">Exp. Date (MM/YY)</label>
-      <div class="expiry-container">
-        <input type="text" id="expiry-month" placeholder="MM" required pattern="\d{2}">
-        <input type="text" id="expiry-year" placeholder="YY" required pattern="\d{2}">
+      <div class="text-gradientStart">
+        <h2>Thank you!</h2>
+        <p>We've added your card details</p>
       </div>
-      </div>
-      <div>
-      <label for="cvc">CVC</label>
-      <input type="text" id="cvc" placeholder="e.g. 123" required pattern="\d{3}">
-      </div>
-      <button type="submit">Confirm</button>
-    </form>
-    
-    <!-- Completed state start -->
-    
-    <div class="text-gradientStart">
-      <h2>Thank you!</h2>
-      <p>We've added your card details</p>  
     </main>
-      <footer class="text-gradientEnd">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-        Coded by <a href="#">Kachi</a>
-      </footer>
-      <script type="module" src="/src/main.js"></script>
-</body>
+    <footer class="text-gradientEnd">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Kachi</a>
+    </footer>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
