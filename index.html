@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   
@@ -10,38 +10,61 @@
   <!-- Styled with tailwindCSS -->
 </head>
 <body>
+  <main>
+    <div class="text-gradientStart">
+      <h1>Interactive card details form</h1>
+    </div>
+    <div class="text-gradientEnd">
+      <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Kachi</a></p>
+    </div>
 
-  0000 0000 0000 0000
-  Jane Appleseed
-  00/00
+    <!-- Card front start -->
+    <div class="card-front">
+      <img src="/images/bg-card-front.png" alt="Card front background">
+      <div class="card-details">
+        <span class="card-number">0000 0000 0000 0000</span>
+        <span class="card-name">Jane Appleseed</span>
+        <span class="card-expiry">00/00</span>
+      </div>
+    </div>
 
-  000
+    <!-- Card back start -->
+    <div class="card-back">
+      <img src="/images/bg-card-back.png" alt="Card back background">
+      <span class="card-cvc">123</span>
+    </div>
 
-  Cardholder Name
-  e.g. Jane Appleseed
+    <!-- Form start -->
+    <form id="card-form" class="card-form">
+      <label for="name">Cardholder Name</label>
+      <input type="text" id="name" placeholder="e.g. Jane Appleseed" required>
 
-  Card Number
-  e.g. 1234 5678 9123 0000
+      <label for="number">Card Number</label>
+      <input type="text" id="number" placeholder="e.g. 1234 5678 9123 0000" required pattern="\d{4} \d{4} \d{4} \d{4}">
 
-  Exp. Date (MM/YY)
-  MM
-  YY
+      <label for="expiry">Exp. Date (MM/YY)</label>
+      <div class="expiry-container">
+        <input type="text" id="expiry-month" placeholder="MM" required pattern="\d{2}">
+        <input type="text" id="expiry-year" placeholder="YY" required pattern="\d{2}">
+      </div>
 
-  CVC
-  e.g. 123
+      <label for="cvc">CVC</label>
+      <input type="text" id="cvc" placeholder="e.g. 123" required pattern="\d{3}">
 
-  Confirm
-
-  <!-- Completed state start -->
-
-  Thank you!
-  We've added your card details
-  Continue
-  
-  <div class="text-purple-950">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Kachi</a>
-  </div>
+      <button type="submit">Confirm</button>
+    </form>
+    
+    <!-- Completed state start -->
+    
+    <div class="text-gradientStart">
+      <h2>Thank you!</h2>
+      <p>We've added your card details</p>  
+    </main>
+      <footer class="text-gradientEnd">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="#">Kachi</a>
+      </footer>
       <script type="module" src="/src/main.js"></script>
 </body>
 </html>
