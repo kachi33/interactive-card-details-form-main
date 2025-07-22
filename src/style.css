@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-md: 375px;
+  --breakpoint-lg: 1440px;
+  --color-gray-200: hsl(240, 5%, 91%);
+  --color-purple-950: hsl(240, 5%, 20%);
+  --color-gray-400: hsl(240, 5%, 70%);
+  --color-gradientStart: hsl(249, 99%, 64%);
+  --color-gradientEnd: hsl(278, 94%, 30%);
+  --color-error-red: hsl(0, 100%, 66%);
+  }
+
+:root {
+  font-family: font-grotesk; 
+  font-size: 18px;
+  font-weight: 500;
+}
