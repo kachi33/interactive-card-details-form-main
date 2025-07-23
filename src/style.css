@@ -2,6 +2,7 @@
 @import "tailwindcss";
 
 @theme {
+  --font-grotesk: 'Space Grotesk', sans-serif;
   --color-gray-200: hsl(240, 5%, 91%);
   --color-purple-950: hsl(240, 5%, 20%);
   --color-grayLight: hsl(270, 3%, 87%);
@@ -15,6 +16,9 @@
   font-family: font-grotesk; 
   font-size: 18px;
   font-weight: 500;
-  
+}
+
+#card-form input{
+@apply border border-gray-300  text-grayDark text-sm  rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
 }
 

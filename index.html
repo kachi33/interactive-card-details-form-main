@@ -10,7 +10,7 @@
     <!-- Styled with tailwindCSS -->
   </head>
   <body>
-    <main class="flex flex-col lg:flex-row h-screen w-full">
+    <main class="flex flex-col lg:flex-row h-screen max-w-full font-grotesk">
       <section
         class="bg-[url(/bg-main-mobile.png)] lg:bg-[url(/bg-main-desktop.png)] bg-no-repeat bg-cover md min-h-[40%] lg:min-h-screen w-full lg:w-[30%]"
       ></section>
@@ -33,8 +33,8 @@
                 alt="Card icon"
                 class=""/>
               <div class="grid grid-cols-2 gap-6">
-              <p class="col-span-2 tracking-[0.1em] lg:text-3xl text-center ">0000 0000 0000 0000</p>
-              <p class="uppercase text-xs spacing tracking-[0.06em]  font-[200]">Jane Appleseed</p>
+              <p class="col-span-2 tracking-[0.1em] lg:text-2xl text-center ">0000 0000 0000 0000</p>
+              <p class="uppercase text-xs spacing tracking-[0.06em]  font-medium">Jane Appleseed</p>
               <p class="text-right text-sm">00/00</p>
               </div>
             </div>
@@ -49,14 +49,15 @@
               alt="Card back background"
               class="w-2xs lg:w-auto drop-shadow-2xl"
             />
-            <p class="absolute text-right text-sm w-full right-36 top-20 pt-4 pr-1 tracking-[0.08em]">000</p>
+            <p class="absolute text-right  w-full right-36 top-20 pt-4 pr-1 tracking-[0.08em]">000</p>
           </div>
         </div>
       </section>
 
       <!-- Form start -->
-      <form id="card-form" class="card-form grid gap-4" novalidate>
-        <div>
+       <section class="lg:w-auto w-full lg:my-auto mt-20 lg:mt-auto">
+      <form id="card-form" class="w-full lg:max-w-96 tracking-[0.09em] uppercase grid grid-cols-2 gap-8 text-xs " >
+        <div class="col-span-2 flex flex-col gap-2">
           <label for="name">Cardholder Name</label>
           <input
             type="text"
@@ -66,7 +67,7 @@
           />
         </div>
 
-        <div>
+        <div class="col-span-2 flex flex-col gap-2">
           <label for="number">Card Number</label>
           <input
             type="text"
@@ -76,9 +77,9 @@
             pattern="\d{4} \d{4} \d{4} \d{4}"
           />
         </div>
-        <div>
+          <div class="flex flex-col gap-2">
           <label for="expiry">Exp. Date (MM/YY)</label>
-          <div class="expiry-container">
+          <div class="grid grid-cols-2 gap-5">
             <input
               type="text"
               id="expiry-month"
@@ -94,8 +95,8 @@
               pattern="\d{2}"
             />
           </div>
-        </div>
-        <div>
+          </div>
+          <div class="flex flex-col gap-2">
           <label for="cvc">CVC</label>
           <input
             type="text"
@@ -105,8 +106,11 @@
             pattern="\d{3}"
           />
         </div>
-        <button type="submit">Confirm</button>
+                <div class="col-span-2">
+        <button type="submit" class="bg-purple-950 text-white w-full p-3 rounded-lg">Confirm</button>
+        </div>
       </form>
+      
 
       <!-- Completed state start -->
 
@@ -114,6 +118,7 @@
         <h2>Thank you!</h2>
         <p>We've added your card details</p>
       </div>
+      </section>
     </main>
     <footer class="text-gradientEnd hidden">
       Challenge by
