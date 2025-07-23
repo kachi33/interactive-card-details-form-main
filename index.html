@@ -16,108 +16,140 @@
       ></section>
       <section class="relative lg:my-auto">
         <!-- Card start -->
-          
+
         <div
-          class="relative w-full lg:w-72 lg:h-64  flex items-center justify-center gap-3 text-white"
+          class="relative w-full lg:w-72 lg:h-64 flex items-center justify-center gap-3 text-white"
         >
           <!-- Card front -->
-          <div class="card-front absolute z-10 -bottom-20 lg:-bottom-0 lg:-top-24 left-4 lg:-left-72  ">
+          <div
+            class="card-front absolute z-10 -top-28 lg:-top-24 left-4 lg:-left-72"
+          >
             <img
               src="/bg-card-front.png"
               alt="Card front background"
               class="w-xs lg:w-auto drop-shadow-2xl"
             />
-            <div class="md:w-full md:flex flex-col md:items-start justify-between lg:gap-14 gap-8 absolute px-2 lg:px-8 md:top-6 top-5">
-              <img
-                src="/card-logo.svg"
-                alt="Card icon"
-                class=""/>
-              <div class="grid grid-cols-2 gap-6">
-              <p class="col-span-2 tracking-[0.1em] lg:text-2xl text-center ">0000 0000 0000 0000</p>
-              <p class="uppercase text-xs spacing tracking-[0.06em]  font-medium">Jane Appleseed</p>
-              <p class="text-right text-sm">00/00</p>
+            <div
+              class="w-full flex flex-col items-start justify-between lg:gap-14 gap-10 absolute px-5 lg:px-8 md:top-6 top-5"
+            >
+              <img src="/card-logo.svg" alt="Card icon" class="" />
+              <div class="grid grid-cols-2 lg:gap-6 gap-3">
+                <p class="col-span-2 tracking-[0.1em] lg:text-2xl text-xl text-center">
+                  0000 0000 0000 0000
+                </p>
+                <p
+                  class="uppercase text-xs spacing tracking-[0.06em] font-medium"
+                >
+                  Jane Appleseed
+                </p>
+                <p class="text-right text-sm bg">00/00</p>
               </div>
             </div>
           </div>
 
           <!-- Card back -->
           <div
-            class="card-back absolute lg:top-36 -top-48 right-4 lg:right-0 lg:-left-52  "
+            class="card-back absolute lg:top-36 -top-50.5 right-4 lg:right-0 lg:-left-52"
           >
             <img
               src="/bg-card-back.png"
               alt="Card back background"
               class="w-2xs lg:w-auto drop-shadow-2xl"
             />
-            <p class="absolute text-right  w-full right-36 top-20 pt-4 pr-1 tracking-[0.08em]">000</p>
+            <p
+              class="absolute text-xs lg:text-sm text-right w-full right-8 lg:right-36 top-17 lg:top-20 pt-1 lg:pt-4 lg:pr-1 tracking-[0.08em]"
+            >
+              000
+            </p>
           </div>
         </div>
       </section>
 
       <!-- Form start -->
-       <section class="lg:w-auto w-full lg:my-auto mt-20 lg:mt-auto">
-      <form id="card-form" class="w-full lg:max-w-96 tracking-[0.09em] uppercase grid grid-cols-2 gap-8 text-xs " >
-        <div class="col-span-2 flex flex-col gap-2">
-          <label for="name">Cardholder Name</label>
-          <input
-            type="text"
-            id="name"
-            placeholder="e.g. Jane Appleseed"
-            required
-          />
-        </div>
-
-        <div class="col-span-2 flex flex-col gap-2">
-          <label for="number">Card Number</label>
-          <input
-            type="text"
-            id="number"
-            placeholder="e.g. 1234 5678 9123 0000"
-            required
-            pattern="\d{4} \d{4} \d{4} \d{4}"
-          />
-        </div>
-          <div class="flex flex-col gap-2">
-          <label for="expiry">Exp. Date (MM/YY)</label>
-          <div class="grid grid-cols-2 gap-5">
+      <section class="lg:w-auto w-full lg:my-auto mt-20 lg:mt-auto px-8 lg:px-0">
+        <form
+          id="card-form"
+          class="w-full lg:max-w-96 tracking-[0.09em] uppercase grid grid-cols-2 gap-6 text-xs mt-4 p"
+        >
+          <div class="col-span-2 flex flex-col gap-2">
+            <label for="name">Cardholder Name</label>
             <input
               type="text"
-              id="expiry-month"
-              placeholder="MM"
+              id="name"
+              placeholder="e.g. Jane Appleseed"
               required
-              pattern="\d{2}"
             />
+          </div>
+
+          <div class="col-span-2 flex flex-col gap-2">
+            <label for="number">Card Number</label>
             <input
               type="text"
-              id="expiry-year"
-              placeholder="YY"
+              id="number"
+              placeholder="e.g. 1234 5678 9123 0000"
               required
-              pattern="\d{2}"
+              pattern="\d{4} \d{4} \d{4} \d{4}"
             />
           </div>
+          <div class="flex flex-col gap-2">
+            <label for="expiry">Exp. Date (MM/YY)</label>
+            <div class="grid grid-cols-2 gap-5">
+              <input
+                type="text"
+                id="expiry-month"
+                placeholder="MM"
+                required
+                pattern="\d{2}"
+              />
+              <input
+                type="text"
+                id="expiry-year"
+                placeholder="YY"
+                required
+                pattern="\d{2}"
+              />
+            </div>
           </div>
           <div class="flex flex-col gap-2">
-          <label for="cvc">CVC</label>
-          <input
-            type="text"
-            id="cvc"
-            placeholder="e.g. 123"
-            required
-            pattern="\d{3}"
+            <label for="cvc">CVC</label>
+            <input
+              type="text"
+              id="cvc"
+              placeholder="e.g. 123"
+              required
+              pattern="\d{3}"
+            />
+          </div>
+          <div class="col-span-2">
+            <button
+              type="submit"
+              class="bg-purple-950 text-white w-full p-3 lg:mt-5 rounded-lg"
+            >
+              Confirm
+            </button>
+          </div>
+        </form>
+
+        <!-- Completed state start -->
+
+        <div
+          id="CompletedState"
+          class="text-center hidden flex-col gap-3 justify-center w-full lg:min-w-96 "
+        >
+          <img
+            src="/icon-complete.svg"
+            alt="Complete icon"
+            class="w-16 h-16 mx-auto mb-4"
           />
+          <h2 class="text-3xl uppercase tracking-[0.10em]">Thank you!</h2>
+          <p class="text-grayDark ">We've added your card details</p>
+          <button
+            type="submit"
+            class="bg-purple-950 text-white w-full p-3 mt-5 rounded-lg"
+          >
+            Continue
+          </button>
         </div>
-                <div class="col-span-2">
-        <button type="submit" class="bg-purple-950 text-white w-full p-3 rounded-lg">Confirm</button>
-        </div>
-      </form>
-      
-
-      <!-- Completed state start -->
-
-      <div id="CompletedState" class="text-gradientStart hidden">
-        <h2>Thank you!</h2>
-        <p>We've added your card details</p>
-      </div>
       </section>
     </main>
     <footer class="text-gradientEnd hidden">
