@@ -10,28 +10,40 @@
     <!-- Styled with tailwindCSS -->
   </head>
   <body>
-    <main class="flex flex-col md:flex-row h-screen bg-amber-300 w-full">
-<section class="bg-[url(/bg-main-mobile.png)] md:bg-[url(/bg-main-desktop.png)] bg-no-repeat bg-cover md min-h-[40%] md:min-h-screen w-full md:w-[30%]">
-     </section>
-      <!-- Card front start -->
-      <section class="relative card-container">
-        <div class="card">
-          <div class="card-inner">
-            <!-- Card front -->
-            <div class="card-front">
-              <img src="/bg-card-front.png" alt="Card front background" />
-              <div class="card-details">
-                <span class="card-number">0000 0000 0000 0000</span>
-                <span class="card-name">Jane Appleseed</span>
-                <span class="card-expiry">00/00</span>
-              </div>
+    <main class="flex flex-col lg:flex-row h-screen w-full">
+      <section
+        class="bg-[url(/bg-main-mobile.png)] lg:bg-[url(/bg-main-desktop.png)] bg-no-repeat bg-cover md min-h-[40%] lg:min-h-screen w-full lg:w-[30%]"
+      ></section>
+      <section class="relative lg:my-auto">
+        <!-- Card start -->
+          
+        <div
+          class="relative w-full lg:w-72 lg:h-64  flex items-center justify-center gap-3 text-white"
+        >
+          <!-- Card front -->
+          <div class="card-front absolute z-10 -bottom-24 lg:-bottom-0 lg:-top-24 left-4 lg:-left-72  ">
+            <img
+              src="/bg-card-front.png"
+              alt="Card front background"
+              class="w-xs lg:w-auto drop-shadow-2xl"
+            />
+            <div class="card-details">
+              <span class="card-number">0000 0000 0000 0000</span>
+              <span class="card-name">Jane Appleseed</span>
+              <span class="card-expiry">00/00</span>
             </div>
+          </div>
 
-            <!-- Card back -->
-            <div class="card-back">
-              <img src="/bg-card-back.png" alt="Card back background" />
-              <span class="card-cvc">123</span>
-            </div>
+          <!-- Card back -->
+          <div
+            class="card-back absolute lg:top-40 -top-48 right-4 lg:right-0 lg:-left-52  "
+          >
+            <img
+              src="/bg-card-back.png"
+              alt="Card back background"
+              class="w-2xs lg:w-auto drop-shadow-2xl"
+            />
+            <span class="card-cvc">000</span>
           </div>
         </div>
       </section>
@@ -92,12 +104,12 @@
 
       <!-- Completed state start -->
 
-      <div class="text-gradientStart">
+      <div id="CompletedState" class="text-gradientStart hidden">
         <h2>Thank you!</h2>
         <p>We've added your card details</p>
       </div>
     </main>
-    <footer class="text-gradientEnd">
+    <footer class="text-gradientEnd hidden">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a

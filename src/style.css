@@ -2,6 +2,7 @@
 @import "tailwindcss";
 
 @theme {
+  --shadow-custom: 20px 20px 10px 20px rgba(0, 0, 0, 0.1), 0px 6px 6px rgba(0, 0, 0, 0.1);
   --color-gray-200: hsl(240, 5%, 91%);
   --color-purple-950: hsl(240, 5%, 20%);
   --color-gray-400: hsl(240, 5%, 70%);
