@@ -2,10 +2,10 @@
 @import "tailwindcss";
 
 @theme {
-  --shadow-custom: 20px 20px 10px 20px rgba(0, 0, 0, 0.1), 0px 6px 6px rgba(0, 0, 0, 0.1);
   --color-gray-200: hsl(240, 5%, 91%);
   --color-purple-950: hsl(240, 5%, 20%);
-  --color-gray-400: hsl(240, 5%, 70%);
+  --color-grayLight: hsl(270, 3%, 87%);
+  --color-grayDark: hsl(240, 5%, 70%);
   --color-gradientStart: hsl(249, 99%, 64%);
   --color-gradientEnd: hsl(278, 94%, 30%);
   --color-error-red: hsl(0, 100%, 66%);
@@ -15,4 +15,6 @@
   font-family: font-grotesk; 
   font-size: 18px;
   font-weight: 500;
+  
 }
+

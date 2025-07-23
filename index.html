@@ -21,29 +21,35 @@
           class="relative w-full lg:w-72 lg:h-64  flex items-center justify-center gap-3 text-white"
         >
           <!-- Card front -->
-          <div class="card-front absolute z-10 -bottom-24 lg:-bottom-0 lg:-top-24 left-4 lg:-left-72  ">
+          <div class="card-front absolute z-10 -bottom-20 lg:-bottom-0 lg:-top-24 left-4 lg:-left-72  ">
             <img
               src="/bg-card-front.png"
               alt="Card front background"
               class="w-xs lg:w-auto drop-shadow-2xl"
             />
-            <div class="card-details">
-              <span class="card-number">0000 0000 0000 0000</span>
-              <span class="card-name">Jane Appleseed</span>
-              <span class="card-expiry">00/00</span>
+            <div class="md:w-full md:flex flex-col md:items-start justify-between lg:gap-14 gap-8 absolute px-2 lg:px-8 md:top-6 top-5">
+              <img
+                src="/card-logo.svg"
+                alt="Card icon"
+                class=""/>
+              <div class="grid grid-cols-2 gap-6">
+              <p class="col-span-2 tracking-[0.1em] lg:text-3xl text-center ">0000 0000 0000 0000</p>
+              <p class="uppercase text-xs spacing tracking-[0.06em]  font-[200]">Jane Appleseed</p>
+              <p class="text-right text-sm">00/00</p>
+              </div>
             </div>
           </div>
 
           <!-- Card back -->
           <div
-            class="card-back absolute lg:top-40 -top-48 right-4 lg:right-0 lg:-left-52  "
+            class="card-back absolute lg:top-36 -top-48 right-4 lg:right-0 lg:-left-52  "
           >
             <img
               src="/bg-card-back.png"
               alt="Card back background"
               class="w-2xs lg:w-auto drop-shadow-2xl"
             />
-            <span class="card-cvc">000</span>
+            <p class="absolute text-right text-sm w-full right-36 top-20 pt-4 pr-1 tracking-[0.08em]">000</p>
           </div>
         </div>
       </section>
