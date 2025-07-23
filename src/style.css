@@ -10,15 +10,20 @@
   --color-gradientStart: hsl(249, 99%, 64%);
   --color-gradientEnd: hsl(278, 94%, 30%);
   --color-error-red: hsl(0, 100%, 66%);
-  }
+}
 
 :root {
-  font-family: font-grotesk; 
+  font-family: var(--font-grotesk);  /* Fixed: added var() */
   font-size: 18px;
   font-weight: 500;
 }
 
-#card-form input{
-@apply border border-gray-300  text-grayDark text-sm  rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+#card-form input {
+  @apply border border-gray-300 text-grayDark text-sm rounded-lg px-4 py-2;
 }
 
+#card-form input:active {
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box, 
+              linear-gradient(135deg, var(--color-gradientStart), var(--color-gradientEnd)) border-box;
+}
