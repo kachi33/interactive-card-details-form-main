@@ -10,13 +10,14 @@
     <!-- Styled with tailwindCSS -->
   </head>
   <body>
-    <main class="flex flex-col lg:flex-row h-screen max-w-full ">
+    <main class="flex flex-col lg:flex-row h-screen max-w-full">
       <section
-        class="bg-[url(/bg-main-mobile.png)] lg:bg-[url(/bg-main-desktop.png)] bg-no-repeat bg-cover md min-h-[40%] lg:min-h-screen w-full lg:w-[30%]"
+        class="bg-[url(/bg-main-mobile.png)] lg:bg-[url(/bg-main-desktop.png)] bg-no-repeat bg-cover min-h-[40%] lg:min-h-screen w-full lg:w-[30%]"
+        aria-label="Background decoration"
       ></section>
-      <section class="relative lg:my-auto">
+      
+      <section class="relative lg:my-auto" aria-label="Card preview">
         <!-- Card start -->
-
         <div
           class="relative w-full lg:w-72 lg:h-64 flex items-center justify-center gap-3 text-white"
         >
@@ -32,17 +33,29 @@
             <div
               class="w-full flex flex-col items-start justify-between lg:gap-14 gap-10 absolute px-5 lg:px-8 md:top-6 top-5"
             >
-              <img src="/card-logo.svg" alt="Card icon" class="" />
+              <img src="/card-logo.svg" alt="Card logo" />
               <div class="grid grid-cols-2 lg:gap-6 gap-3">
-                <p class="col-span-2 tracking-[0.1em] lg:text-2xl text-xl text-center">
+                <p 
+                  class="col-span-2 tracking-[0.1em] lg:text-2xl text-xl text-center"
+                  id="card-number-display"
+                  aria-label="Card number display"
+                >
                   0000 0000 0000 0000
                 </p>
                 <p
                   class="uppercase text-xs spacing tracking-[0.06em] font-medium"
+                  id="card-name-display"
+                  aria-label="Cardholder name display"
                 >
                   Jane Appleseed
                 </p>
-                <p class="text-right text-sm bg">00/00</p>
+                <p 
+                  class="text-right text-sm"
+                  id="card-expiry-display"
+                  aria-label="Card expiry display"
+                >
+                  00/00
+                </p>
               </div>
             </div>
           </div>
@@ -58,6 +71,8 @@
             />
             <p
               class="absolute text-xs lg:text-sm text-right w-full right-8 lg:right-36 top-17 lg:top-20 pt-1 lg:pt-4 lg:pr-1 tracking-[0.08em]"
+              id="card-cvc-display"
+              aria-label="Card CVC display"
             >
               000
             </p>
@@ -66,98 +81,108 @@
       </section>
 
       <!-- Form start -->
-      <section class="lg:w-auto w-full lg:my-auto mt-20 lg:mt-auto px-8 lg:px-0">
-        <form
-          id="card-form"
-          class="w-full lg:max-w-96 tracking-[0.09em] uppercase grid grid-cols-2 gap-6 text-xs mt-4 p"
-        >
-          <div class="col-span-2 flex flex-col gap-2">
-            <label for="name">Cardholder Name</label>
-            <input
-              type="text"
-              id="name"
-              placeholder="e.g. Jane Appleseed"
-              required
-            />
-          </div>
-
-          <div class="col-span-2 flex flex-col gap-2">
-            <label for="number">Card Number</label>
-            <input
-              type="text"
-              id="number"
-              placeholder="e.g. 1234 5678 9123 0000"
-              required
-              pattern="\d{4} \d{4} \d{4} \d{4}"
-            />
-          </div>
-          <div class="flex flex-col gap-2">
-            <label for="expiry">Exp. Date (MM/YY)</label>
-            <div class="grid grid-cols-2 gap-5">
+      <section class="lg:w-auto w-full lg:my-auto mt-20 lg:mt-auto px-8 lg:px-0" aria-label="Card details form">
+        <div>
+          <form
+            id="card-form"
+            class="w-full lg:max-w-96 tracking-[0.09em] uppercase grid grid-cols-2 gap-6 text-xs mt-4"
+            novalidate
+          >
+            <div class="col-span-2 flex flex-col gap-2">
+              <label for="name">Cardholder Name</label>
               <input
                 type="text"
-                id="expiry-month"
-                placeholder="MM"
+                id="name"
+                placeholder="e.g. Jane Appleseed"
                 required
-                pattern="\d{2}"
+                aria-describedby="name-error"
               />
-              <input
-                type="text"
-                id="expiry-year"
-                placeholder="YY"
-                required
-                pattern="\d{2}"
-              />
+              <div id="name-error" class="text-error-red text-xs hidden" role="alert"></div>
             </div>
-          </div>
-          <div class="flex flex-col gap-2">
-            <label for="cvc">CVC</label>
-            <input
-              type="text"
-              id="cvc"
-              placeholder="e.g. 123"
-              required
-              pattern="\d{3}"
-            />
-          </div>
-          <div class="col-span-2">
-            <button
-              type="submit"
-              class="bg-purple-950 text-white w-full p-3 lg:mt-5 rounded-lg"
-            >
-              Confirm
-            </button>
-          </div>
-        </form>
+
+            <div class="col-span-2 flex flex-col gap-2">
+              <label for="number">Card Number</label>
+              <input
+                type="text"
+                id="number"
+                placeholder="e.g. 1234 5678 9123 0000"
+                required
+                pattern="\d{4} \d{4} \d{4} \d{4}"
+                aria-describedby="number-error"
+              />
+              <div id="number-error" class="text-error-red text-xs hidden" role="alert"></div>
+            </div>
+            
+            <div class="flex flex-col gap-2">
+              <label for="expiry">Exp. Date (MM/YY)</label>
+              <div class="grid grid-cols-2 gap-5">
+                <input
+                  type="text"
+                  id="expiry-month"
+                  placeholder="MM"
+                  required
+                  pattern="\d{2}"
+                  aria-label="Expiry month"
+                  aria-describedby="expiry-error"
+                />
+                <input
+                  type="text"
+                  id="expiry-year"
+                  placeholder="YY"
+                  required
+                  pattern="\d{2}"
+                  aria-label="Expiry year"
+                  aria-describedby="expiry-error"
+                />
+              </div>
+              <div id="expiry-error" class="text-error-red text-xs hidden" role="alert"></div>
+            </div>
+            
+            <div class="flex flex-col gap-2">
+              <label for="cvc">CVC</label>
+              <input
+                type="text"
+                id="cvc"
+                placeholder="e.g. 123"
+                required
+                pattern="\d{3}"
+                aria-describedby="cvc-error"
+              />
+              <div id="cvc-error" class="text-error-red text-xs hidden" role="alert"></div>
+            </div>
+            
+            <div class="col-span-2">
+              <button
+                type="submit"
+                class="bg-purple-950 text-white w-full p-3 lg:mt-5 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              >
+                Confirm
+              </button>
+            </div>
+          </form>
+        </div>
 
         <!-- Completed state start -->
-
         <div
-          id="CompletedState"
-          class="text-center hidden flex-col gap-3 justify-center w-full lg:min-w-96 "
+          id="completed-state"
+          class="text-center hidden flex-col gap-3 justify-center w-full lg:min-w-96"
         >
-          <img
-            src="/icon-complete.svg"
-            alt="Complete icon"
-            class="w-16 h-16 mx-auto mb-4"
-          />
-          <h2 class="text-3xl uppercase tracking-[0.10em]">Thank you!</h2>
-          <p class="text-grayDark ">We've added your card details</p>
-          <button
-            type="submit"
-            class="bg-purple-950 text-white w-full p-3 mt-5 rounded-lg"
-          >
-            Continue
-          </button>
-        </div>
+            <img
+              src="/icon-complete.svg"
+              alt="Complete icon"
+              class="w-16 h-16 mx-auto mb-4"
+            />
+            <h2 class="text-3xl uppercase tracking-[0.10em]">Thank you!</h2>
+            <p class="text-grayDark">We've added your card details</p>
+            <button
+              type="button"
+              class="bg-purple-950 text-white w-full p-3 mt-5 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            >
+              Continue
+            </button>
+          </div>
       </section>
     </main>
-    <footer class="text-gradientEnd hidden">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Kachi</a>
-    </footer>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
