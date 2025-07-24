@@ -22,7 +22,7 @@
   @apply border border-gray-300 text-grayDark text-sm rounded-lg px-4 py-2;
 }
 
-#card-form input:active {
+#card-form input:focus {
   border: 2px solid transparent;
   background: linear-gradient(white, white) padding-box, 
               linear-gradient(135deg, var(--color-gradientStart), var(--color-gradientEnd)) border-box;
