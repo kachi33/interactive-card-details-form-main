@@ -48,42 +48,45 @@ function updateCardDisplay() {
     cardCvcDisplay.textContent = cvcValue || '000';
 }
 
-function showError(errorElement, message) {
+function showError(errorElement, message, inputElement) {
     errorElement.textContent = message;
     errorElement.classList.remove('hidden');
+    inputElement.classList.add('error');
 }
 
-function hideError(errorElement) {
+function hideError(errorElement, inputElement) {
     errorElement.classList.add('hidden');
     errorElement.textContent = '';
+    inputElement.classList.remove('error');
 }
 
 function validateName(value) {
     if (!value.trim()) {
-        showError(nameError, "Can't be blank");
+        showError(nameError, "Can't be blank", nameInput);
         return false;
     }
-    hideError(nameError);
+    hideError(nameError, nameInput);
     return true;
 }
 
 function validateCardNumber(value) {
     const cleanValue = value.replace(/\s/g, '');
     if (!cleanValue) {
-        showError(numberError, "Can't be blank");
+        showError(numberError, "Can't be blank", numberInput);
         return false;
     }
     if (!/^\d{16}$/.test(cleanValue)) {
-        showError(numberError, "Wrong format, numbers only");
+        showError(numberError, "Wrong format, numbers only", numberInput);
         return false;
     }
-    hideError(numberError);
+    hideError(numberError, numberInput);
     return true;
 }
 
 function validateExpiry(month, year) {
     if (!month || !year) {
-        showError(expiryError, "Can't be blank");
+        showError(expiryError, "Can't be blank", expiryMonthInput);
+        expiryYearInput.classList.add('error');
         return false;
     }
     
@@ -91,12 +94,14 @@ function validateExpiry(month, year) {
     const yearNum = parseInt(year);
     
     if (!/^\d{2}$/.test(month) || monthNum < 1 || monthNum > 12) {
-        showError(expiryError, "Invalid month");
+        showError(expiryError, "Invalid month", expiryMonthInput);
+        expiryYearInput.classList.add('error');
         return false;
     }
     
     if (!/^\d{2}$/.test(year)) {
-        showError(expiryError, "Invalid year");
+        showError(expiryError, "Invalid year", expiryYearInput);
+        expiryMonthInput.classList.add('error');
         return false;
     }
     
@@ -105,24 +110,26 @@ function validateExpiry(month, year) {
     const currentMonth = currentDate.getMonth() + 1;
     
     if (yearNum < currentYear || (yearNum === currentYear && monthNum < currentMonth)) {
-        showError(expiryError, "Card expired");
+        showError(expiryError, "Card expired", expiryMonthInput);
+        expiryYearInput.classList.add('error');
         return false;
     }
     
-    hideError(expiryError);
+    hideError(expiryError, expiryMonthInput);
+    expiryYearInput.classList.remove('error');
     return true;
 }
 
 function validateCvc(value) {
     if (!value) {
-        showError(cvcError, "Can't be blank");
+        showError(cvcError, "Can't be blank", cvcInput);
         return false;
     }
     if (!/^\d{3}$/.test(value)) {
-        showError(cvcError, "Invalid CVC");
+        showError(cvcError, "Invalid CVC", cvcInput);
         return false;
     }
-    hideError(cvcError);
+    hideError(cvcError, cvcInput);
     return true;
 }
 
@@ -194,10 +201,11 @@ continueButton.addEventListener('click', () => {
     cardExpiryDisplay.textContent = '00/00';
     cardCvcDisplay.textContent = '000';
     
-    hideError(nameError);
-    hideError(numberError);
-    hideError(expiryError);
-    hideError(cvcError);
+    hideError(nameError, nameInput);
+    hideError(numberError, numberInput);
+    hideError(expiryError, expiryMonthInput);
+    expiryYearInput.classList.remove('error');
+    hideError(cvcError, cvcInput);
     
     completedState.classList.add('hidden');
     completedState.classList.remove('flex');

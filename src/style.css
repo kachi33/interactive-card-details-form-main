@@ -28,3 +28,12 @@
               linear-gradient(135deg, var(--color-gradientStart), var(--color-gradientEnd)) border-box;
 }
 
+#card-form input.error {
+  @apply border-error-red;
+  border-width: 2px;
+}
+
+#card-form input.error:focus {
+  border: 2px solid var(--color-error-red);
+  background: white;
+}
