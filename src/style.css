@@ -13,7 +13,7 @@
 }
 
 :root {
-  font-family: var(--font-grotesk);  /* Fixed: added var() */
+  font-family: var(--font-grotesk);  
   font-size: 18px;
   font-weight: 500;
 }
